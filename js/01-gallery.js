@@ -1,5 +1,6 @@
 import { galleryItems } from './gallery-items.js';
 
+
 const galleryContainer = document.querySelector(".gallery");
 const galleryMarkUp = createGalleryItems(galleryItems);
 
@@ -24,14 +25,21 @@ function createGalleryItems(items) {
 </div>
     `
     }).join('');
-  
        
 }
 
-function onItemClick(event) {
-    console.log(event.target);
-  event.preventDefault();
+function onItemClick(e) {
+  e.preventDefault();
+
+  if (e.target.localName !== "img") {
+    return;
+  }
   
-  modalEl.classList.add('is-visible');
+  console.log(e.target.dataset.source);
+  
+  const instance = basicLightbox.create(`
+    <img src="${e.target.dataset.source}">`)
+
+    instance.show()
 
 }
