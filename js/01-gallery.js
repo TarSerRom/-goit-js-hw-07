@@ -4,7 +4,6 @@ import { galleryItems } from './gallery-items.js';
 const galleryContainer = document.querySelector(".gallery");
 const galleryMarkUp = createGalleryItems(galleryItems);
 
-const modalEl = document.querySelector('.basicLightbox');
 
 galleryContainer.insertAdjacentHTML('beforeend', galleryMarkUp);
 
